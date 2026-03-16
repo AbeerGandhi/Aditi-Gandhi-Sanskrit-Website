@@ -27,7 +27,7 @@ export default function Home() {
             initial={{ scale: 1.2 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
-            src="/images/home-classroom.png" 
+            src="/images/classroom-main.png" 
             alt="Sanskrit Classroom" 
             className="w-full h-full object-cover opacity-30"
             referrerPolicy="no-referrer"
@@ -202,7 +202,7 @@ export default function Home() {
             >
               <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
                 <img 
-                  src="/images/home-classroom.png" 
+                  src="/images/classroom-main.png" 
                   alt="Sanskrit Classroom" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
