@@ -115,8 +115,8 @@ export default function Results() {
             <h2 className="text-3xl font-bold text-slate-900">Google Review Highlights</h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[1, 2, 3, 4].map((i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -126,8 +126,8 @@ export default function Results() {
                 className="rounded-2xl overflow-hidden shadow-md border border-slate-100 hover:shadow-xl transition-shadow cursor-pointer"
               >
                 <img 
-                  src={`https://picsum.photos/seed/review-ss-${i}/600/800`} 
-                  alt={`Review Screenshot ${i}`}
+                  src={`/images/google review ${i}.png`} 
+                  alt={`Google Review ${i}`}
                   className="w-full h-auto"
                   referrerPolicy="no-referrer"
                 />

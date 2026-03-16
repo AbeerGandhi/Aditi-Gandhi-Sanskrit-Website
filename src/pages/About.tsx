@@ -22,7 +22,7 @@ export default function About() {
           >
             <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
               <img 
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=1974" 
+                src="/images/Aditi Gandhi.png" 
                 alt="Aditi Gandhi" 
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
@@ -61,6 +61,39 @@ export default function About() {
             </div>
           </motion.div>
         </div>
+
+        {/* Gallery Section */}
+        <section className="mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Classroom Gallery</h2>
+            <p className="text-slate-600">A glimpse into our learning environment and student activities.</p>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[1, 2, 3].map((i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="aspect-video md:aspect-square rounded-3xl overflow-hidden shadow-lg group"
+              >
+                <img 
+                  src={`/images/gallery image ${i}.png`} 
+                  alt={`Gallery Image ${i}`}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  referrerPolicy="no-referrer"
+                />
+              </motion.div>
+            ))}
+          </div>
+        </section>
 
         <div className="bg-slate-50 rounded-[3rem] p-12 md:p-20 text-center">
           <h2 className="text-3xl font-bold text-slate-900 mb-8">Our Mission</h2>
