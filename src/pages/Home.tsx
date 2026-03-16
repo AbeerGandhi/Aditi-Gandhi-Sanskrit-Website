@@ -27,8 +27,8 @@ export default function Home() {
             initial={{ scale: 1.2 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
-            src="https://images.unsplash.com/photo-1544923246-77307dd654ca?auto=format&fit=crop&q=80&w=2070" 
-            alt="Sanskrit Script" 
+            src="/images/Home page classroom image.png" 
+            alt="Sanskrit Classroom" 
             className="w-full h-full object-cover opacity-30"
             referrerPolicy="no-referrer"
           />
@@ -202,8 +202,8 @@ export default function Home() {
             >
               <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=2070" 
-                  alt="Sanskrit Culture" 
+                  src="/images/Home page classroom image.png" 
+                  alt="Sanskrit Classroom" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />

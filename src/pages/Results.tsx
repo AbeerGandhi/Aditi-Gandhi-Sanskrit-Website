@@ -1,17 +1,16 @@
-import { motion } from 'motion/react';
-import { Award, Star, Quote, Image as ImageIcon } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Award, Star, Quote, Image as ImageIcon, X } from 'lucide-react';
 
 export default function Results() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   const achievers = [
     {
-      name: "Shivank Nimbalkar",
-      caption: "Class 10 CBSE (100/100)",
-      image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=1974"
+      image: "/images/results 1 (1).jpeg"
     },
     {
-      name: "Rohan Sharma",
-      caption: "Class 10 (2025)",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1974"
+      image: "/images/results 1 (2).jpeg"
     }
   ];
 
@@ -58,7 +57,7 @@ export default function Results() {
             <div className="w-24 h-1.5 bg-primary mx-auto rounded-full mb-8"></div>
             
             <motion.a
-              href="https://search.google.com/local/writereview?placeid=ChIJ-3_8_8_8_8_8_8_8_8_8_8_8" // Placeholder placeid, user can update
+              href="https://www.google.com/search?client=opera&hs=9tX&sca_esv=78fb863f68fa48c7&sxsrf=ANbL-n5wQvO15uBuEMbyDeogoxOTaX_-xA:1773668701329&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOX0luv9MMF0VPZCO9JDkU0i4rcOqkY61tS6xH_cbrCCPhJ7IyGVMII0KmcsF2OfRadgOyG_0bRGaJc0Ho0BPifri6R1v5IKVe8i1NxJ2gYac-kmelQ%3D%3D&q=Aditi+Gandhi%27s+Sanskrit+Classes+Reviews&sa=X&ved=2ahUKEwie-5DnxqSTAxXS2TgGHa2LM2kQ0bkNegQIMhAF&biw=1534&bih=696&dpr=1.25&zx=1773668708116&no_sw_cr=1#lrd=0x3bd4c132b49fb1d7:0xa43aba0e46c83262,3,,,," // Placeholder placeid, user can update
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
@@ -82,28 +81,29 @@ export default function Results() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {achievers.map((achiever, idx) => (
-              <motion.figure
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="group relative overflow-hidden rounded-[2.5rem] shadow-lg bg-white"
+                onClick={() => setSelectedImage(achiever.image)}
+                className="group relative overflow-hidden rounded-[2.5rem] shadow-lg bg-white cursor-pointer"
               >
-                <div className="aspect-[4/3] overflow-hidden">
+                <div className="overflow-hidden">
                   <img 
                     src={achiever.image} 
-                    alt={achiever.name} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    alt="Result Collage" 
+                    className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <figcaption className="absolute bottom-0 left-0 w-full p-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <p className="text-sm font-bold uppercase tracking-widest mb-1 opacity-80">{achiever.caption}</p>
-                  <h3 className="text-2xl font-bold">{achiever.name}</h3>
-                </figcaption>
-              </motion.figure>
+                <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="bg-white/90 p-4 rounded-full shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                    <ImageIcon className="text-primary" />
+                  </div>
+                </div>
+              </motion.div>
             ))}
           </div>
         </section>
@@ -189,6 +189,36 @@ export default function Results() {
           </div>
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-[100] bg-slate-900/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+          >
+            <motion.button
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              className="absolute top-6 right-6 text-white bg-white/10 p-3 rounded-full hover:bg-white/20 transition-colors"
+              onClick={() => setSelectedImage(null)}
+            >
+              <X size={32} />
+            </motion.button>
+            <motion.img
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              src={selectedImage}
+              alt="Result Collage Full View"
+              className="max-w-full max-h-full rounded-xl shadow-2xl object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
