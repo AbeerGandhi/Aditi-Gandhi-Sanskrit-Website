@@ -7,10 +7,10 @@ export default function Results() {
 
   const achievers = [
     {
-      image: "/images/results 1 (1).jpeg"
+      image: "/images/results-1.jpeg"
     },
     {
-      image: "/images/results 1 (2).jpeg"
+      image: "/images/results-2.jpeg"
     }
   ];
 
@@ -126,7 +126,7 @@ export default function Results() {
                 className="rounded-2xl overflow-hidden shadow-md border border-slate-100 hover:shadow-xl transition-shadow cursor-pointer"
               >
                 <img 
-                  src={`/images/google review ${i}.png`} 
+                  src={`/images/google-review-${i}.png`} 
                   alt={`Google Review ${i}`}
                   className="w-full h-auto"
                   referrerPolicy="no-referrer"

@@ -202,7 +202,7 @@ export default function Home() {
             >
               <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
                 <img 
-                  src="/images/Home page classroom image.png" 
+                  src="/images/home-classroom.png" 
                   alt="Sanskrit Classroom" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"

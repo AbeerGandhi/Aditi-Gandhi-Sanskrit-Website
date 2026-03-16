@@ -22,7 +22,7 @@ export default function About() {
           >
             <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
               <img 
-                src="/images/Aditi Gandhi.png" 
+                src="/images/aditi-gandhi.png" 
                 alt="Aditi Gandhi" 
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
@@ -85,7 +85,7 @@ export default function About() {
                 className="aspect-video md:aspect-square rounded-3xl overflow-hidden shadow-lg group"
               >
                 <img 
-                  src={`/images/gallery image ${i}.png`} 
+                  src={`/images/gallery-${i}.png`} 
                   alt={`Gallery Image ${i}`}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   referrerPolicy="no-referrer"
